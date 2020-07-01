@@ -5,9 +5,6 @@ import Repos from "../Repos/Repos";
 import About from "../About/About";
 
 const UserDisplay = ({user, setUser}) => {
-  // if (user) {
-  //   console.log(user);
-  // }
 
   return (
     <div className='user-display'>

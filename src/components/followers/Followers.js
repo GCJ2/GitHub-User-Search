@@ -15,6 +15,7 @@ const Followers = ({followersURL, setUser}) => {
   };
 
   useEffect(() => {
+    window.scrollTo(0,0);
     fetchFollowers()
   }, [followersURL]);
 
