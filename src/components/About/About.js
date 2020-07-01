@@ -9,7 +9,7 @@ const About = () => {
       <p>We've got some nice conditional renders as well so this message will go away once
         you look up a user.</p>
       <p>Interested in seeing the
-        <a href="https://github.com/GCJ2/React-Github-User-Card"
+        <a href="https://github.com/GCJ2/GitHub-User-Search"
            rel='noopener noreferrer'
            target='_blank'> code</a>?
       </p>
