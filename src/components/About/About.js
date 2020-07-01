@@ -18,9 +18,18 @@ const About = () => {
         once more with the userReducer hook.</p>
       <p>Give the repo a follow if you're curious and feel free to say hello to me here:</p>
       <div className='contact-links'>
-        <a href="https://github.com/GCJ2/">GitHub</a>
-        <a href="https://www.linkedin.com/in/gregorycjohnston/">LinkedIn</a>
-
+        <a href="http://www.gregorycjohnston.com/"
+           rel='noopener noreferrer'
+           target='_blank'>Personal Site</a>
+        <a href="https://github.com/GCJ2/"
+           rel='noopener noreferrer'
+          target='_blank'>GitHub</a>
+        <a href="https://www.linkedin.com/in/gregorycjohnston/"
+           rel='noopener noreferrer'
+          target='_blank'>LinkedIn</a>
+        <a href="http://www.twitter.com/gregisliving"
+           rel='noopener noreferrer'
+           target='_blank'>Twitter</a>
       </div>
     </div>
   );

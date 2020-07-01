@@ -8,7 +8,6 @@ import './App.css';
 const App = () => {
 
   const [userInfo, setUserInfo] = useState(null);
-  console.log(userInfo)
 
   const fetchUser = (user) => {
     axios.get(`https://api.github.com/users/${user}`)
