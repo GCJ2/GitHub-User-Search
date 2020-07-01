@@ -1,0 +1,11 @@
+.repos {
+  text-align: center;
+  width: 50%;
+  @media (min-width: 780px) {
+    width: 350px;
+    margin-right: 20px;
+  }
+  @media (max-width: 470px) {
+    margin: auto;
+  }
+}

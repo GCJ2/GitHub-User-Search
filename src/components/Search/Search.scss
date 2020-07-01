@@ -1,0 +1,29 @@
+.search-component {
+  text-align: center;
+  margin-bottom: 10px;
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    justify-content: space-evenly;
+    position: relative;
+    max-width: 345px;
+  }
+
+  .search-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+  }
+
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
