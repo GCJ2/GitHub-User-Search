@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import UserDisplay from "./components/UserDispaly/UserDisplay"
 import Search from './components/Search/Search'
@@ -10,7 +10,7 @@ const App = () => {
   const [userInfo, setUserInfo] = useState(null);
 
   const fetchUser = (user) => {
-    axios.get(`https://api.github.com/users/${user}`)
+    axios.get(`https://api.github.com/users/gcj2`)
       .then (res => {
         setUserInfo(res.data)
       })
@@ -18,6 +18,10 @@ const App = () => {
         console.log(err);
       })
   };
+
+  useEffect(() => {
+    fetchUser()
+  },[])
 
 
   return (
