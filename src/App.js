@@ -9,25 +9,8 @@ import {getUser} from "./actions";
 
 
 const App = (props) => {
-  const {getUser, user} = props;
+  const {user} = props;
   console.log(user);
-
-  const [userInfo, setUserInfo] = useState(null);
-
-  const fetchUser = (user) => {
-    axios.get(`https://api.github.com/users/${user}`)
-      .then (res => {
-        setUserInfo(res.data)
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  };
-
-  // useEffect(() => {
-  //   fetchUser()
-  // },[])
-
 
   return (
     <div className='app'>
@@ -35,8 +18,7 @@ const App = (props) => {
         <Header/>
         <Search/>
       </div>
-      <UserDisplay
-      setUser={fetchUser}/>
+      <UserDisplay/>
     </div>
   );
 };

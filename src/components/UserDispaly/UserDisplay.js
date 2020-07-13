@@ -42,8 +42,10 @@ const UserDisplay = ({user, setUser}) => {
           <Repos reposURL={user.repos_url}/>
           : null}
         {user ?
-          <Followers followersURL={user.followers_url}
-                     setUser={setUser}/>
+          <Followers
+            // followersURL={user.followers_url}
+            //          setUser={setUser}
+          />
           : null}
       </div>
     </div>

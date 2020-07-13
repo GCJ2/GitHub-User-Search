@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   user: null,
+  followersURL: '',
   followers: '',
   repos: '',
   isFetching: false,
@@ -24,7 +25,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        user: action.payload
+        user: action.payload,
+        followersURL: action.payload.followers_url
       };
     case FETCH_FOLLOWER_SUCCESS:
       return {
