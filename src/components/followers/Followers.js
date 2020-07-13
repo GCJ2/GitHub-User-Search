@@ -2,37 +2,47 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import FollowerCard from "../FollowerCard/FollowerCard";
 import './Followers.scss'
+import {connect} from "react-redux";
+import {getUser} from "../../actions";
+import {getFollowers} from "../../actions";
 
-const Followers = ({followersURL, setUser}) => {
-  const [followers, setFollowers] = useState([]);
+const Followers = ({followersURL, setUser, getUser, getFollowers, followers}) => {
+
+  const [userFollowers, setUserFollowers] = useState([]);
 
   const fetchFollowers = () => {
     axios.get(followersURL)
       .then(res => {
-        setFollowers(res.data)
+        setUserFollowers(res.data)
       })
       .catch(err => console.error())
   };
 
   useEffect(() => {
     window.scrollTo(0,0);
-    fetchFollowers()
+    // fetchFollowers();
+    getFollowers(followersURL);
   }, [followersURL]);
 
-  // if (followers.length !== 0) {
-  //   console.log(followers)
-  // }
 
   return (
     <div className='followers'>
       <h2>Followers</h2>
+      {!followers ? null :
       <div className='followers-list'>
         {followers.map(follower => (
           <FollowerCard key={follower.id} follower={follower} setUser={setUser}/>
         ))}
-      </div>
+      </div>}
     </div>
   );
 };
 
-export default Followers;
+const mapStateToProps = state => {
+  return {
+    followers: state.followers
+  }
+};
+
+// export default Followers;
+export default connect(mapStateToProps, {getFollowers})(Followers)

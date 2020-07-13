@@ -3,6 +3,8 @@ import './UserDisplay.scss'
 import Followers from "../followers/Followers";
 import Repos from "../Repos/Repos";
 import About from "../About/About";
+import {connect} from 'react-redux'
+
 
 const UserDisplay = ({user, setUser}) => {
 
@@ -48,4 +50,11 @@ const UserDisplay = ({user, setUser}) => {
   );
 };
 
-export default UserDisplay;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+};
+
+// export default UserDisplay;
+export default connect(mapStateToProps)(UserDisplay)

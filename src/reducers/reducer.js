@@ -1,13 +1,16 @@
 import {
   FETCH_START,
-  FETCH_SUCCESS,
+  FETCH_USER_SUCCESS,
+  FETCH_FOLLOWER_SUCCESS,
   FETCH_FAILURE
 } from "../actions";
 
 const initialState = {
   user: null,
+  followers: '',
+  repos: '',
   isFetching: false,
-  error: ""
+  error: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,14 +19,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ''
       };
-    case FETCH_SUCCESS:
+    case FETCH_USER_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        error: '',
         user: action.payload
+      };
+    case FETCH_FOLLOWER_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        followers: action.payload
       };
     case FETCH_FAILURE:
       return {

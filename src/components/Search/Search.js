@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import * as Icon from 'react-feather'
 import './Search.scss'
+import {connect} from "react-redux";
+import {getUser} from "../../actions";
 
-const Search = ({fetchUser}) => {
+const Search = ({fetchUser, getUser}) => {
   const [user, setUser] = useState('');
 
   const handleChange = (e) => {
@@ -11,7 +13,7 @@ const Search = ({fetchUser}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchUser(user);
+    getUser(user);
     setUser('');
   };
 
@@ -30,4 +32,13 @@ const Search = ({fetchUser}) => {
   );
 };
 
-export default Search;
+// const mapStateToProps = state => {
+//   return {
+//     user: state.user,
+//     isFetching: state.isFetching,
+//     error: state.error
+//   }
+// };
+
+// export default Search;
+export default connect(null, {getUser})(Search)

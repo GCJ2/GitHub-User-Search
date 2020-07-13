@@ -4,8 +4,13 @@ import UserDisplay from "./components/UserDispaly/UserDisplay"
 import Search from './components/Search/Search'
 import Header from './components/header/Header'
 import './App.css';
+import {connect} from "react-redux";
+import {getUser} from "./actions";
 
-const App = () => {
+
+const App = (props) => {
+  const {getUser, user} = props;
+  console.log(user);
 
   const [userInfo, setUserInfo] = useState(null);
 
@@ -28,14 +33,22 @@ const App = () => {
     <div className='app'>
       <div className='header-container'>
         <Header/>
-        <Search fetchUser={fetchUser}/>
+        <Search/>
       </div>
       <UserDisplay
-        user={userInfo}
       setUser={fetchUser}/>
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    isFetching: state.isFetching,
+    error: state.error
+  }
+};
 
+
+// export default App;
+export default connect(mapStateToProps, {getUser})(App)
