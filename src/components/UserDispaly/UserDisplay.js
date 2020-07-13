@@ -6,7 +6,7 @@ import About from "../About/About";
 import {connect} from 'react-redux'
 
 
-const UserDisplay = ({user, setUser}) => {
+const UserDisplay = ({user}) => {
 
   return (
     <div className='user-display'>
@@ -39,13 +39,10 @@ const UserDisplay = ({user, setUser}) => {
         </div>}
       <div className='bottom-content'>
         {user ?
-          <Repos reposURL={user.repos_url}/>
+          <Repos/>
           : null}
         {user ?
-          <Followers
-            // followersURL={user.followers_url}
-            //          setUser={setUser}
-          />
+          <Followers/>
           : null}
       </div>
     </div>
@@ -58,5 +55,4 @@ const mapStateToProps = state => {
   }
 };
 
-// export default UserDisplay;
 export default connect(mapStateToProps)(UserDisplay)

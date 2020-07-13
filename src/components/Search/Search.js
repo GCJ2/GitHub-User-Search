@@ -4,7 +4,7 @@ import './Search.scss'
 import {connect} from "react-redux";
 import {getUser} from "../../actions";
 
-const Search = ({fetchUser, getUser}) => {
+const Search = ({getUser}) => {
   const [user, setUser] = useState('');
 
   const handleChange = (e) => {
@@ -32,13 +32,4 @@ const Search = ({fetchUser, getUser}) => {
   );
 };
 
-// const mapStateToProps = state => {
-//   return {
-//     user: state.user,
-//     isFetching: state.isFetching,
-//     error: state.error
-//   }
-// };
-
-// export default Search;
 export default connect(null, {getUser})(Search)

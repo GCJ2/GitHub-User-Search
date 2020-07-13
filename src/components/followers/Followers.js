@@ -4,21 +4,10 @@ import './Followers.scss'
 import {connect} from "react-redux";
 import {getFollowers} from "../../actions";
 
-const Followers = ({followersURL, setUser, getUser, getFollowers, followers}) => {
-
-  const [userFollowers, setUserFollowers] = useState([]);
-
-  // const fetchFollowers = () => {
-  //   axios.get(followersURL)
-  //     .then(res => {
-  //       setUserFollowers(res.data)
-  //     })
-  //     .catch(err => console.error())
-  // };
+const Followers = ({followersURL, getFollowers, followers}) => {
 
   useEffect(() => {
     window.scrollTo(0,0);
-    // fetchFollowers();
     getFollowers(followersURL);
   }, [followersURL]);
 
@@ -29,7 +18,7 @@ const Followers = ({followersURL, setUser, getUser, getFollowers, followers}) =>
       {!followers ? null :
       <div className='followers-list'>
         {followers.map(follower => (
-          <FollowerCard key={follower.id} follower={follower} setUser={setUser}/>
+          <FollowerCard key={follower.id} follower={follower}/>
         ))}
       </div>}
     </div>
@@ -43,5 +32,4 @@ const mapStateToProps = state => {
   }
 };
 
-// export default Followers;
 export default connect(mapStateToProps, {getFollowers})(Followers)
