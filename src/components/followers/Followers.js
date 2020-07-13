@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import FollowerCard from "../FollowerCard/FollowerCard";
 import './Followers.scss'
 import {connect} from "react-redux";

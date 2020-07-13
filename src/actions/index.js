@@ -7,7 +7,6 @@ export const FETCH_REPO_SUCCESS = "FETCH_REPO_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 
 export const getUser = user => dispatch => {
-  console.log('GetUsers in Redux')
   dispatch({type: FETCH_START});
     axios.get(`https://api.github.com/users/${user}`)
       .then (res => {
@@ -19,7 +18,6 @@ export const getUser = user => dispatch => {
 };
 
 export const getFollowers = followersURL => dispatch => {
-  console.log('GetFollowers in Redux')
   dispatch({type: FETCH_START});
   axios.get(`${followersURL}`)
     .then (res => {
@@ -31,7 +29,6 @@ export const getFollowers = followersURL => dispatch => {
 };
 
 export const getRepos = reposURL => dispatch => {
-  console.log('GetRepos in Redux')
   dispatch({type: FETCH_START});
   axios.get(`${reposURL}`)
     .then (res => {

@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getRepos} from "../../actions";
-import axios from 'axios'
 import RepoCard from "../RepoCard/RepoCard";
 import './Repos.scss'
 
