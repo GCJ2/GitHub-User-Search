@@ -5,18 +5,9 @@ import axios from 'axios'
 import RepoCard from "../RepoCard/RepoCard";
 import './Repos.scss'
 
-const Repos = ({reposURL, repos}) => {
-
-  const fetchRepos = () => {
-    axios.get(reposURL)
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(err => console.error())
-  };
+const Repos = ({reposURL, repos, getRepos}) => {
 
   useEffect(() => {
-    // fetchRepos()
     getRepos(reposURL)
   }, [reposURL]);
 
