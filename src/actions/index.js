@@ -10,7 +10,6 @@ export const getUser = user => dispatch => {
   dispatch({type: FETCH_START});
     axios.get(`https://api.github.com/users/${user}`)
       .then (res => {
-        // let user = (res.data);
         dispatch({type: FETCH_USER_SUCCESS, payload: res.data})
       })
       .catch(err => {
@@ -32,10 +31,21 @@ export const getFollowers = followersURL => dispatch => {
 export const getRepos = reposURL => dispatch => {
   dispatch({type: FETCH_START});
   axios.get(`${reposURL}`)
-    .then(res => {
+    .then (res => {
       dispatch({type: FETCH_REPO_SUCCESS, payload: res.data})
     })
     .catch(err => {
       dispatch({type: FETCH_FAILURE, payload: err})
     })
 };
+
+// export const getRepos = reposURL => dispatch => {
+//   dispatch({type: FETCH_START});
+//   axios.get(`${reposURL}`)
+//     .then(res => {
+//       dispatch({type: FETCH_REPO_SUCCESS, payload: res.data})
+//     })
+//     .catch(err => {
+//       dispatch({type: FETCH_FAILURE, payload: err})
+//     })
+// };

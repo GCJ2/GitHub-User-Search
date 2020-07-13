@@ -2,7 +2,8 @@ import {
   FETCH_START,
   FETCH_USER_SUCCESS,
   FETCH_FOLLOWER_SUCCESS,
-  FETCH_FAILURE, FETCH_REPO_SUCCESS
+  FETCH_REPO_SUCCESS,
+  FETCH_FAILURE
 } from "../actions";
 
 const initialState = {

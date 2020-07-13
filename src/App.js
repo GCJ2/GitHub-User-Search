@@ -10,7 +10,6 @@ import {getUser} from "./actions";
 
 const App = (props) => {
   const {user} = props;
-  console.log(user);
 
   return (
     <div className='app'>
