@@ -17,16 +17,10 @@ const FollowerCard = ({ follower, getUser }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
-
 FollowerCard.propTypes = {
   follower: propTypes.object.isRequired,
   getUser: propTypes.func.isRequired,
 };
 
 // export default FollowerCard;
-export default connect(mapStateToProps, { getUser })(FollowerCard);
+export default connect(null, { getUser })(FollowerCard);
