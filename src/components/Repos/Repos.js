@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getRepos } from "../../actions";
 import RepoCard from "../RepoCard/RepoCard";
+import propTypes from "prop-types";
 import "./Repos.scss";
 
 const Repos = ({ reposURL, repos, getRepos }) => {
@@ -28,6 +29,12 @@ const mapStateToProps = (state) => {
     repos: state.repos,
     reposURL: state.reposURL,
   };
+};
+
+Repos.propTypes = {
+  reposURL: propTypes.string.isRequired,
+  repos: propTypes.oneOfType([propTypes.string, propTypes.array]),
+  getRepos: propTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { getRepos })(Repos);

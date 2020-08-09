@@ -1,35 +1,40 @@
-import React, {useState} from 'react';
-import * as Icon from 'react-feather'
-import './Search.scss'
-import {connect} from "react-redux";
-import {getUser} from "../../actions";
+import React, { useState } from "react";
+import * as Icon from "react-feather";
+import { connect } from "react-redux";
+import { getUser } from "../../actions";
+import propTypes from "prop-types";
+import "./Search.scss";
 
-const Search = ({getUser}) => {
-  const [user, setUser] = useState('');
+const Search = ({ getUser }) => {
+  const [user, setUser] = useState("");
 
   const handleChange = (e) => {
-    setUser(e.target.value)
+    setUser(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     getUser(user);
-    setUser('');
+    setUser("");
   };
 
   return (
-    <div className='search-component'>
-      <form className='search-form' onSubmit={handleSubmit}>
+    <div className="search-component">
+      <form className="search-form" onSubmit={handleSubmit}>
         <input
-          type='text'
-          placeholder='Enter a user'
+          type="text"
+          placeholder="Enter a user"
           value={user}
           onChange={handleChange}
         />
-        <Icon.Search className='search-icon' onClick={handleSubmit}/>
+        <Icon.Search className="search-icon" onClick={handleSubmit} />
       </form>
     </div>
   );
 };
 
-export default connect(null, {getUser})(Search)
+Search.propTypes = {
+  getUser: propTypes.func.isRequired,
+};
+
+export default connect(null, { getUser })(Search);

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import FollowerCard from "../FollowerCard/FollowerCard";
-import "./Followers.scss";
 import { connect } from "react-redux";
 import { getFollowers } from "../../actions";
+import propTypes from "prop-types";
+import "./Followers.scss";
 
 const Followers = ({ followersURL, getFollowers, followers }) => {
   useEffect(() => {
@@ -29,6 +30,12 @@ const mapStateToProps = (state) => {
     followers: state.followers,
     followersURL: state.followersURL,
   };
+};
+
+Followers.propTypes = {
+  followersURL: propTypes.string.isRequired,
+  followers: propTypes.oneOfType([propTypes.string, propTypes.array]),
+  getFollowers: propTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, { getFollowers })(Followers);
